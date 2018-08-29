@@ -11,21 +11,26 @@ class list extends PureComponent{
 
 		return(
 			<div>
-			{
-				articleList.map((item, i) =>{
+			{articleList? 
+			 articleList.map((item, i) =>{
 					return(
-						<Link key={i} 
-						to={{pathname: `/${item.get('id')}`,
+						<Link 
+						key={i} 
+						to={{
+						pathname: `/detail?${item.get('id')}`,
 						state: { 
 							title: item.get('title'), 
 							nickname: item.get('nickname'),
 							comment: item.get('comment'),
 							like: item.get('like'),
-							money: item.get('money')
-						}
+							money: item.get('money'),
+							avatar: item.get('avatar')}
 						}}>
 							<ListItem>
-								<img  className="pic" src={item.get('imgUrl')} alt=""/>
+								<img 
+								className="pic" 
+								src={item.get('imgUrl')} 
+								alt=""/>
 								<ListInfo>
 									<h3 className="title">{item.get('title')}</h3>
 									<p className="desc">{item.get('desc')}</p>
@@ -53,13 +58,14 @@ class list extends PureComponent{
 					</Link>
 
 					)
-				})
+				}) : ""
 			}
 			<LoadMore onClick={() => Loadmore(page)}>阅读更多</LoadMore>
 			</div>
 		)
 	}
 }
+
 
 const mapState = (state) =>({
 	articleList: state.getIn(['home', 'articleList']),
@@ -76,3 +82,4 @@ const mapDispatch =(dispatch) =>({
 export default connect(mapState, mapDispatch)(list);
 
 
+//

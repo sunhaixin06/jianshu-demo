@@ -98,6 +98,9 @@ export const DetailInfo = styled.div`
     .meta .likes-count{
     	padding-right: 5px;
     }
+    .meta .money-count{
+        padding-right: 5px;
+    }
 `;
 
 export const DetailContent = styled.div`
