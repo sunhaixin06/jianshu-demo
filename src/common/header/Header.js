@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import { services } from './store';
+import { actionLogin } from '../../pages/login/store';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { 
@@ -60,7 +61,7 @@ class Header extends Component{
     	}
     }
     render(){
-    	const { focused, FocusInput, BlurInput, list} = this.props;
+    	const { focused, FocusInput, BlurInput, list, setin, Sign_Up, Sign_In, Sign_out} = this.props;
         return(
         	<HeaderNav>
 	             <HeaderWrapper>   
@@ -74,14 +75,25 @@ class Header extends Component{
 	                	<NavItem className='left download'>
 	                		<Navicon className='icondow'/>下载App
 	                	</NavItem>
-	                	<NavItem className='right login'>登录</NavItem>
+	                	{setin?
+		                	<NavItem 
+		                		className='right login'
+		                		onClick={Sign_out}
+		                	>退出</NavItem>:
+		                	<Link to="/login">
+			                	<NavItem 
+			                		className='right login'
+			                		onClick={Sign_In}
+			                	>登录</NavItem>
+		                	</Link>
+	                	}
 	                	<NavItem className='right'>
 	                		<Navicon className='iconAa'/>
 	                	</NavItem>
 	                	<SearchWapper>
 	                		<CSSTransition
 	                		  in={focused}
-	                		  timeout={200}
+	                		  timeout={300}
 	                		  classNames="slide"
 	                		>
 			                	<NavSearch 
@@ -97,7 +109,12 @@ class Header extends Component{
 	                </Nav>
 	                <Addition>
 	                	<Button className='article'><Navicon className='iconWrite'/>写文章</Button>
-	                	<Button className='register'>注册</Button>
+	                	<Link to="/login">
+		                	<Button 
+		                		className='register'
+		                		onClick={Sign_Up}
+		                	>注册</Button>
+	                	</Link>
 	                </Addition>
 	            </HeaderWrapper>
 	        </HeaderNav>
@@ -114,6 +131,8 @@ const mapStateToProps = (state) =>{
 		page: state.getIn(['header','page']),
 		total: state.getIn(['header','total']),
 		mouseIn: state.getIn(['header','mouseIn']),
+		setin: state.getIn(['header','login']),
+		tabskey: state.getIn(['login', 'tabskey']),
 	}
 }
 
@@ -123,7 +142,15 @@ const mapDispatchToProps = (dispatch) =>{
 			(list.size === 0) && dispatch(services.getFocusInputList());
 			dispatch(services.getFocusInputAction());
 	    },
-
+	    Sign_In(){
+	    	dispatch(actionLogin.getLoginin());
+	    },
+	    Sign_Up(){
+	    	dispatch(actionLogin.getLoginup());
+	    },
+	    Sign_out(){
+	    	dispatch(services.getHeaderLogup());
+	    },
 	    BlurInput(){
 			dispatch(services.getBlurInputAction());
 	    },

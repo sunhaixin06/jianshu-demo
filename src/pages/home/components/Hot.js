@@ -2,15 +2,15 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { RightBoard } from '../style';
 
-class Writer extends PureComponent{
+class Hot extends PureComponent{
 
 	render(){
-		const { recommendLsit } = this.props;
+		const { HotList } = this.props;
 
 		return(
 			<div>
 				{
-					recommendLsit.map((items) => {
+					HotList.map((items) => {
 						return(
 							<div key={items.get('id')}>
 								<RightBoard src={items.get('imgUrl')}/>
@@ -24,7 +24,7 @@ class Writer extends PureComponent{
 }
 
 const mapState = (state) =>({
-	recommendLsit: state.getIn(['home', 'recommendLsit'])
+	HotList: state.getIn(['home', 'hotList'])
 })
 
-export default connect(mapState, null)(Writer);
+export default connect(mapState, null)(Hot);

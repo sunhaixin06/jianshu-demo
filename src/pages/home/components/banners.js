@@ -6,16 +6,18 @@ import { Carousel } from 'element-react';
 class banners extends PureComponent{
 
 	render(){
-		const { carouselList } = this.props;
+		const { List } = this.props;
 		
 		return(
 			<Carousel height="270px" autoplay={true}>
-				{
-	            carouselList.map((item) => {
+				{List.map((item) => {
 	              return (
-	                <Carousel.Item key={item.get('id')}>
-	                  <img className='banner-img' alt=""
-	                  src={item.get('imgUrl')}/>
+	                <Carousel.Item 
+	                  key={item.get('id')}>
+	                  <img 
+	                  	className='banner-img' 
+	                  	alt=""
+	                  	src={item.get('imgUrl')}/>
 	                </Carousel.Item>
 	              )
 	            })
@@ -26,7 +28,7 @@ class banners extends PureComponent{
 }
 
 const mapState = (state) =>({
-	carouselList: state.getIn(['home', 'carouselList'])
+	List: state.getIn(['home', 'carouselList'])
 })
 
 export default connect(mapState, null)(banners);

@@ -129,12 +129,12 @@ export const Navicon = styled.i`
 
     &.iconlinks{
         display: inline-block;
-        line-height: 19px
         transition: .5s ease;
         font-size: 14px;
         float: right;
         position: relative;
         right: 5px;
+        top: 3px;
     }
     &.iconfollow{
          display: inline-block;
@@ -148,7 +148,7 @@ export const Navicon = styled.i`
     }
     &.iconbacktop{
         font-size: 20px;
-        padding-top: 16px;
+        padding-top: 10px;
         padding-left: 15px;
     }
     &.iconlink:before{content:"\\E616"}
@@ -180,7 +180,6 @@ export const LoadMore = styled.div`
     width: 625px;
     border-radius: 20px;
     background-color: #a5a5a5;
-    height: 20px;
     margin: 30px auto 60px;
     padding: 10px 0px;
     text-align: center;
@@ -248,7 +247,7 @@ export const RecommendWarpper = styled.div`
     width: 280px;
     height: 82px;
     margin-bottom: 30px;
-    margin-top: 2px;
+    margin-top: 4px;
     border: 1px solid #f0f0f0;
     border-radius: 6px;
     background: #fff;
@@ -266,8 +265,9 @@ export const RecommendItem = styled.div`
     width: 143px;
     height: 43px;
     float: left;
-    margin-top: 23px;
-    margin-left: 8px;
+    position: relative;
+    top: 17px;
+    left: 11px;
     .title{
         font-size: 15px;
         color: #333;
@@ -275,7 +275,7 @@ export const RecommendItem = styled.div`
         
     }
     .description{
-        margin-top: 8px;
+        margin-top: 4px;
         font-size: 13px;
         color: #999;
     }
@@ -317,6 +317,9 @@ export const RecommendAuthors = styled.div`
             url(//cdn2.jianshu.io/assets/fonts/web/iconfont-15db882204670eac8e7cb03d109b66df.ttf) format("truetype"),
             url(//cdn2.jianshu.io/assets/fonts/web/iconfont-efae63d61e0894dbea7b1bdea615065b.svg#iconfont) format("svg")
         }
+    }
+    .iconChangeAAA {
+        margin-top: 3.5px;
     }
     .iconChangeAAA:before{content:"\\E6E6"}
     .spin{

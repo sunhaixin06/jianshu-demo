@@ -7,54 +7,45 @@ import { services } from '../store';
 class list extends PureComponent{
 
 	render(){
-		const { articleList, Loadmore, page} = this.props;
+		const { List, Loadmore, page } = this.props;
 
 		return(
 			<div>
-			{articleList? 
-			 articleList.map((item, i) =>{
+			{List? List.map((item, i) =>{
 					return(
 						<Link 
 						key={i} 
 						to={{
-						pathname: `/detail?${item.get('id')}`,
-						state: { 
-							title: item.get('title'), 
-							nickname: item.get('nickname'),
-							comment: item.get('comment'),
-							like: item.get('like'),
-							money: item.get('money'),
-							avatar: item.get('avatar')}
+							pathname: `/detail`,
+							search: `${item.get('id')}`
 						}}>
-							<ListItem>
-								<img 
-								className="pic" 
-								src={item.get('imgUrl')} 
-								alt=""/>
-								<ListInfo>
-									<h3 className="title">{item.get('title')}</h3>
-									<p className="desc">{item.get('desc')}</p>
-									<div className="meta">
-										<div className="nickname">{item.get('nickname')}</div>
-										<div>
-											<Navicon className="iconlistlike"/>
-											<i>{item.get('comment')}</i>
-										</div>
-										<div>
-											<Navicon className="iconlist_like"/>
-											<i>{item.get('like')}</i>
-										</div>
-										{
-											item.get('money') ?
-											<div>
-												<Navicon className="iconlist_money"/>
-												<i>{item.get('money')}</i>
-											</div>
-											: ""
-										}
+						<ListItem>
+							<img className="pic" src={item.get('imgUrl')} alt=""/>
+							<ListInfo>
+								<h3 className="title">{item.get('title')}</h3>
+								<p className="desc">{item.get('desc')}</p>
+								<div className="meta">
+									<div className="nickname">
+										{item.get('nickname')}
 									</div>
-							    </ListInfo>
-							</ListItem>
+									<div>
+										<Navicon className="iconlistlike"/>
+										<i>{item.get('comment')}</i>
+									</div>
+									<div>
+										<Navicon className="iconlist_like"/>
+										<i>{item.get('like')}</i>
+									</div>
+									{ item.get('money') ?
+										<div>
+											<Navicon className="iconlist_money"/>
+											<i>{item.get('money')}</i>
+										</div>
+										: ""
+									}
+								</div>
+						    </ListInfo>
+						</ListItem>
 					</Link>
 
 					)
@@ -68,8 +59,8 @@ class list extends PureComponent{
 
 
 const mapState = (state) =>({
-	articleList: state.getIn(['home', 'articleList']),
 	page: state.getIn(['home', 'Page']),
+	List: state.getIn(['home', 'articleList'])
 })
 
 const mapDispatch =(dispatch) =>({
@@ -78,8 +69,4 @@ const mapDispatch =(dispatch) =>({
 	}
 })
 
-
 export default connect(mapState, mapDispatch)(list);
-
-
-//

@@ -4,7 +4,7 @@ import * as constant from './ActionTypes';
 const defaultState = fromJS({
 	topicList: [],
 	articleList: [],
-	recommendLsit: [],
+	hotList: [],
 	carouselList: [],
 	articePage: 1,
 	articetotal: 1,
@@ -17,7 +17,7 @@ const changeHomeList = (state, action) =>{
 	return state.merge({
 		topicList: fromJS(action.topicList),
 		articleList: fromJS(action.articleList),
-		recommendLsit: fromJS(action.recommendLsit),
+		hotList: fromJS(action.hotList),
 		carouselList: fromJS(action.carouselList),
 	});
 };
@@ -40,7 +40,7 @@ export default (state = defaultState, action) =>{
 	switch(action.type) {
 		case constant.change_home_list:
 			return changeHomeList(state, action);
-		case constant.chnage_page_type:
+		case constant.change_page_type:
 			return state.set('articePage', action.articePage);
 		case constant.add_artice_list:
 			return addArticeList(state, action);

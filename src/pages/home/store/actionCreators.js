@@ -6,7 +6,7 @@ const changeHoneData = (result) => ({
 	type: constant.change_home_list,
 	topicList: result.topicList,
 	articleList: result.articleList,
-	recommendLsit: result.recommendLsit,
+	hotList: result.hotList,
 	carouselList: result.carouselList,
 });
 
@@ -67,7 +67,7 @@ export const ChangeLoadmore = (page) =>{
 }
 
 export const getPageInputList = (articePage) => ({
-	type: constant.chnage_page_type,
+	type: constant.change_page_type,
 	articePage
 })
 

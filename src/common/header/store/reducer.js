@@ -7,7 +7,15 @@ const defaultState = fromJS({
 	list: [],
 	page: 1,
 	total: 1,
+	login: false
 });
+
+const changeList = (state, action) => {
+	return state.merge({
+		list: action.data,
+		total: action.total
+	});
+};
 
 export default (state = defaultState, action ) =>{
 	switch(action.type){
@@ -22,10 +30,11 @@ export default (state = defaultState, action ) =>{
 		case constant.page_type :
 			return state.set('page', action.page);
 		case constant.change_list :
-			return state.merge({
-				list: action.data,
-				total: action.total
-			});
+			return changeList(state, action);
+		case constant.header_login :
+		 	return state.set('login', true);
+		case constant.header_logup :
+		 	return state.set('login', false);
 		default:
 			return state;
 	}

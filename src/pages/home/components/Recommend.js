@@ -39,17 +39,16 @@ class recommend extends PureComponent{
 	}
 
 	render(){
-		
-		
 		return(
 			<div>
 				<RecommendWarpper>
-					<img 
-					alt=""
+					<img alt=""
 					src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png"
 					className="desc"/>
 					<RecommendItem>
-						<div className="title">下载简书手机App<Navicon className="iconlinks" /></div>
+						<div className="title">下载简书手机App
+							<Navicon className="iconlinks" />
+						</div>
 						<div className="description">随时随地发现和创作内容</div>
 					</RecommendItem>
 				</RecommendWarpper>
@@ -57,6 +56,7 @@ class recommend extends PureComponent{
 			</div>
 		)
 	}
+	
 	componentDidMount(){
 		this.props.changeHomeData();
 	}

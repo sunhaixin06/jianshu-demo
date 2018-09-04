@@ -28,6 +28,7 @@ injectGlobal`
   }
   body {
     line-height: 1;
+    user-select:none;
   }
   ol, ul {
     list-style: none;
@@ -43,6 +44,9 @@ injectGlobal`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+  #root{
+    height: 100%;
   }
 `;
 

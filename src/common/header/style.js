@@ -113,7 +113,6 @@ export const NavItem = styled.div`
     }
     &.download:hover{
         background-color: #F4F4F4;
-        height:30px;
         transition: all 0.1s ease-in;
     }
 
@@ -125,10 +124,10 @@ export const SearchWapper = styled.div`
 
 export const SearchInfo = styled.div`
     position: absolute;
-    left: 15px;
+    left: 19px;
     top: 58px;
-    width: 215px;
-    padding: 0 20px;
+    width: 220px;
+    padding: 0 17px;
     background-color: #fff;
     box-shadow: 0 0 8px rgba(0,0,0,.2);
     border-radius: 4px;
@@ -202,6 +201,9 @@ export const SearchSwitch = styled.span`
         transition: all .2s ease-in;
         transform: rotate(0deg);
         transform-origin: center center;
+    }
+    .iconChange{
+        margin-top: 3.3px;
     }
     .iconChange:before{content:"\\E6E6"}
 `;

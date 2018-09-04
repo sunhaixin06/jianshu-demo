@@ -4,3 +4,5 @@ export const change_list = 'change_list';
 export const enter_type = 'enter_type';
 export const leave_type = 'leave_type';
 export const page_type = 'page_type';
+export const header_login = 'header_login';
+export const header_logup = 'header_logup';

@@ -6,7 +6,6 @@ const getChangeList = (data) => ({
 	type: constant.change_list,
 	data: fromJS(data),
 	total: Math.ceil(data.length/10)
-
 });
 
 export const getFocusInputAction = () => ({
@@ -19,12 +18,22 @@ export const getBlurInputAction = () => ({
   
 });
 
+export const getHeaderLogin = (login) =>({
+	type: constant.header_login,
+	login
+});
+
+export const getHeaderLogup = (login) =>({
+	type: constant.header_logup,
+	login
+});
+
 export const getEnterInputLIst = () =>({
-	type: constant.enter_type,
+	type: constant.enter_type
 });
 
 export const getLeaveInputLIst = () =>({
-	type: constant.leave_type,
+	type: constant.leave_type
 });
 
 export const getPageInputList = (page) => ({

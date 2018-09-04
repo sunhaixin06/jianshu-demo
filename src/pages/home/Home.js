@@ -2,7 +2,7 @@ import React, { PureComponent }from 'react';
 import { connect } from 'react-redux';
 import Topic from './components/Topic';
 import List from './components/List';
-import Writer from './components/Writer';
+import Hot from './components/Hot';
 import Banners from './components/banners';
 import Recommend from './components/Recommend';
 import Header from '../../common/header/Header';
@@ -17,13 +17,10 @@ class Home extends PureComponent{
 				<Header />
 				<HomeWrapper>
 					<HomeLeft>
-					   <Banners/>
-					   <Topic/>
-					   <List/>
+					   <Banners/><Topic/><List/>
 					</HomeLeft>
 					<HomeRight>
-						<Writer/>
-						<Recommend/>
+						<Hot/><Recommend/>
 					</HomeRight>
 					{ showScroll ? 
 						<BackTop onClick={handleScrollTop}>
