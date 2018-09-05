@@ -29,16 +29,16 @@ class list extends PureComponent{
 										{item.get('nickname')}
 									</div>
 									<div>
-										<Navicon className="iconlistlike"/>
+										<Navicon className="iconlistlike iconfont"/>
 										<i>{item.get('comment')}</i>
 									</div>
 									<div>
-										<Navicon className="iconlist_like"/>
+										<Navicon className="iconlist_like iconfont"/>
 										<i>{item.get('like')}</i>
 									</div>
 									{ item.get('money') ?
 										<div>
-											<Navicon className="iconlist_money"/>
+											<Navicon className="iconlist_money iconfont"/>
 											<i>{item.get('money')}</i>
 										</div>
 										: ""

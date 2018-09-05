@@ -17,7 +17,7 @@ class Detail extends PureComponent{
 						return(
 							<div>
 								{id == item.get('id') ? 
-								<div>
+								<div key={item.get('id')}>
 									<Header />
 									<DetailWrapper>
 										<DetailTitle>{item.get('title')}</DetailTitle>
@@ -31,7 +31,7 @@ class Detail extends PureComponent{
 											<DetailInfo>
 												<span className="name">{item.get('nickname')}</span>
 												<div className="success">
-													<i className="ic-follow" />
+													<i className="ic-follow iconfont" />
 													<span>关注</span>
 												</div>
 												<div className="meta">

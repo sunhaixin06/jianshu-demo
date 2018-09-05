@@ -7,7 +7,9 @@ const defaultState = fromJS({
 	list: [],
 	page: 1,
 	total: 1,
-	login: false
+	login: false,
+	otherList: [],
+	avatarList: [],
 });
 
 const changeList = (state, action) => {
@@ -16,6 +18,13 @@ const changeList = (state, action) => {
 		total: action.total
 	});
 };
+
+const othersList = (state, action) => {
+	return state.merge({
+		otherList: action.data,
+		avatarList:action.avatar
+	})
+}
 
 export default (state = defaultState, action ) =>{
 	switch(action.type){
@@ -31,6 +40,8 @@ export default (state = defaultState, action ) =>{
 			return state.set('page', action.page);
 		case constant.change_list :
 			return changeList(state, action);
+		case constant.header_others :
+			return othersList(state, action);
 		case constant.header_login :
 		 	return state.set('login', true);
 		case constant.header_logup :

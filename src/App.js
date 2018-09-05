@@ -12,7 +12,7 @@ class App extends Component {
     return (
      	<Provider store={store}>
       		<BrowserRouter>
-      			<div style={{ height: '100%'}}>
+      			<div style={{ height: '100%', overflowX: 'hidden'}}>
               <Route path='/' exact component={Home}></Route>
       				<Route path='/login' exact component={Login}></Route>
       				<Route path='/detail' exact component={Detail}></Route>

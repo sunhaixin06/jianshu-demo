@@ -1,0 +1,66 @@
+{
+	"code": 200,
+	"message": "成功",
+	"data": [{
+		"id": 1,
+		"icon": "<i class='ic_comment ICON iconfont'/>",
+		"title": "评论"
+	},{
+		"id": 2,
+		"icon": "<i class='ic_cats ICON iconfont'/>",
+		"title": "简信"
+	},{
+		"id": 3,
+		"icon": "<i class='ic_requests ICON iconfont'/>",
+		"title": "投稿请求"
+	},{
+		"id": 4,
+		"icon": "<i class='ic_likes ICON iconfont'/>",
+		"title": "喜欢和赞"
+	},{
+		"id": 5,
+		"icon": "<i class='ic_follows ICON iconfont'/>",
+		"title": "关注"
+	},{
+		"id": 6,
+		"icon": "<i class='ic_money ICON iconfont'/>",
+		"title": "赞赏和付费"
+	},{
+		"id": 7,
+		"icon": "<i class='ic_others ICON iconfont'/>",
+		"title": "其他提醒"
+	}],
+	"avatar":[{
+		"id": 8,
+		"icon": "<i class='ic-navigation-profile ICON iconfont'/>",
+		"title": "我的主页"
+	},{
+		"id": 9,
+		"icon": "<i class='ic-navigation-mark ICON iconfont'/>",
+		"title": "收藏的文章"
+	},{
+		"id": 10,
+		"icon": "<i class='ic-navigation-like ICON iconfont'/>",
+		"title": "喜欢的文章"
+	},{
+		"id": 11,
+		"icon": "<i class='ic-paid ICON iconfont'/>",
+		"title": "已购内容"
+	},{
+		"id": 12,
+		"icon": "<i class='ic-navigation-wallet ICON iconfont'/>",
+		"title": "我的钱包"
+	},{
+		"id": 13,
+		"icon": "<i class='ic-navigation-settings ICON iconfont'/>",
+		"title": "设置"
+	},{
+		"id": 14,
+		"icon": "<i class='ic-navigation-feedback ICON iconfont'/>",
+		"title": "帮助与反馈"
+	},{
+		"id": 15,
+		"icon": "<i class='ic-navigation-signout ICON iconfont'/>",
+		"title": "退出"
+	}]
+}

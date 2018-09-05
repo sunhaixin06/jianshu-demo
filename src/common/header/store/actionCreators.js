@@ -8,6 +8,12 @@ const getChangeList = (data) => ({
 	total: Math.ceil(data.length/10)
 });
 
+const getOthersList = (data, avatar) => ({
+	type: constant.header_others,
+	avatar: fromJS(avatar),
+	data: fromJS(data)
+})
+
 export const getFocusInputAction = () => ({
     type: constant.focus_type
   
@@ -51,4 +57,15 @@ export const getFocusInputList = () =>{
 	    ))
     }
 };
+
+export const getHeaderOthersList = () =>{
+	return (dispatch) =>{
+		axios.get('/api/news.json').then((res) =>{
+			const data = res.data;
+			dispatch(getOthersList(data.data, data.avatar));
+		}).catch(() =>{
+			console.log('err')
+		})
+	}
+}
 

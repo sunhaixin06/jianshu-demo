@@ -24,7 +24,7 @@ class Home extends PureComponent{
 					</HomeRight>
 					{ showScroll ? 
 						<BackTop onClick={handleScrollTop}>
-							<Navicon className="iconbacktop" />
+							<Navicon className="iconbacktop iconfont" />
 					    </BackTop> : null}
 				</HomeWrapper>
 			</div>

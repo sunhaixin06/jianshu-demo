@@ -25,7 +25,7 @@ class Topic extends PureComponent{
 				}
 				<TopicMovehot>更多热门专题</TopicMovehot>
 				<TopicMovehot>
-					<Navicon className='iconlink'/>
+					<Navicon className='iconlink iconfont'/>
 				</TopicMovehot>
 			</TopicWapper>
 		)

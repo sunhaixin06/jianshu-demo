@@ -17,7 +17,7 @@ class recommend extends PureComponent{
 							<span>{newlist[i].title}</span>
 							<p>{newlist[i].comment}</p>
 						</div>
-						<div className="follow"><Navicon className="iconfollow"/>关注</div>
+						<div className="follow"><Navicon className="iconfollow iconfont"/>关注</div>
 					</li>
 	    		)
 	    	}
@@ -29,7 +29,7 @@ class recommend extends PureComponent{
 					<span>推荐作者</span>
 					<a onClick={() => PageInput(articePage, articetotal, this.spinIcon)}>
 					<i ref={(icon) => { this.spinIcon = icon }}
-					className="iconChangeAAA spin" />换一批</a>
+					className="iconChangeAAA spin iconfont" />换一批</a>
 				</div>
 				<ul className="list">
 					{authorslist}
@@ -47,7 +47,7 @@ class recommend extends PureComponent{
 					className="desc"/>
 					<RecommendItem>
 						<div className="title">下载简书手机App
-							<Navicon className="iconlinks" />
+							<Navicon className="iconlinks iconfont" />
 						</div>
 						<div className="description">随时随地发现和创作内容</div>
 					</RecommendItem>

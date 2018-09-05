@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { 
 	HeaderNav,
+	HeaderUser,
 	HeaderWrapper, 
 	Logo, Nav, NavItem, 
 	Navicon, NavSearch, 
@@ -47,7 +48,7 @@ class Header extends Component{
 	        				>
 	        					<i 
 	        					ref={(icon) => { this.spinIcon = icon }}
-	        					className='iconChange spin'/>
+	        					className='iconChange spin iconfont'/>
 	        					换一批
 	        				</SearchSwitch>
 	    				</Trending>
@@ -60,62 +61,146 @@ class Header extends Component{
     		return null;
     	}
     }
+    componentDidMount(){
+		this.props.newotherlist();
+	}
     render(){
-    	const { focused, FocusInput, BlurInput, list, setin, Sign_Up, Sign_In, Sign_out} = this.props;
+    	const { focused, FocusInput, BlurInput, 
+    			OthersOver, OthersOut, list, otherlist, LookOut, LookOver,  
+    			otherClick, avatarList, setin, Sign_Up, Sign_In
+    	} = this.props;
+    	let dropdown = otherlist.toJS();
+    	let dropdowns = avatarList.toJS();
         return(
         	<HeaderNav>
 	             <HeaderWrapper>   
 	             	<Link to="/">
 	                	<Logo/>
 	                </Link>
-	                <Nav>
-	                	<NavItem className='left active'>
-	                		<Navicon className='iconindex'/>首页
-	                	</NavItem>
-	                	<NavItem className='left download'>
-	                		<Navicon className='icondow'/>下载App
-	                	</NavItem>
-	                	{setin?
-		                	<NavItem 
-		                		className='right login'
-		                		onClick={Sign_out}
-		                	>退出</NavItem>:
+		           {setin?
+	               	<div>
+		                <Nav>
+		                	<NavItem className='left active'>
+		                		<Navicon className='iconindex iconfont'/>发现
+		                	</NavItem>
+		                	<NavItem className='left download'>
+		                		<Navicon className='iconmenu iconfont'/>关注
+		                	</NavItem>
+		                	<NavItem className='left download' 
+		                	onMouseOut={() => OthersOut(this.openIcon)} 
+		                	onMouseOver={() => OthersOver(this.openIcon)}
+		                	>
+		                		<Navicon className='iconnot iconfont'/>消息
+			                		<ul 
+			                		ref={(open) => { this.openIcon = open }}
+			                		className="dropdown-menu open">
+			                			{dropdown? dropdown.map((item) =>{
+			                				return(
+			                					<li key={item.id}>
+			                						<a>
+				                						<div 
+				                						dangerouslySetInnerHTML={{__html: item.icon}}></div>
+				                						<div className="title">{item.title}</div>
+				                					</a>
+			                					</li>
+			                				)
+			                			}):""}
+			                		</ul>
+		                	</NavItem>
+		                	<NavItem className='right'>
+		                		<Navicon className='iconAa iconfont'/>
+		                	</NavItem>
+		                	<SearchWapper>
+		                		<CSSTransition
+		                		  in={focused}
+		                		  timeout={300}
+		                		  classNames="slide"
+		                		>
+				                	<NavSearch 
+				                	className={focused ? 'focused': ''}
+				                	onFocus={ () =>  FocusInput(list)}
+				                	onBlur={BlurInput}
+				                	/>
+				                </CSSTransition>
+				                	<Navicon 
+				                	className={focused ? 'focused iconsearch iconfont': 'iconsearch iconfont'} />
+			                		{this.SerachListPage()}
+			                </SearchWapper>
+		                </Nav>
+		                <Addition>
+		               		<HeaderUser
+		               		onMouseOut={() => LookOut(this.lookIcon)} 
+		                	onMouseOver={() => LookOver(this.lookIcon)}
+		               		>
+		               			<div className="avatar">
+		               				<img src="//upload.jianshu.io/users/upload_avatars/8429722/8520bf4d-39f2-472a-951a-43d94747e7cf.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120"  alt=""/>
+			               			<ul 
+			               			ref={(look) => { this.lookIcon = look }}
+			               			className="look"
+			               			>
+			               				{dropdowns? dropdowns.map((item) =>{
+			               					return(
+			               						<li key={item.id} onClick={() =>otherClick(item.id)}>
+					               					<span>
+					               						<div 
+					               						dangerouslySetInnerHTML={{__html: item.icon}}></div>
+				                						<div className="title">{item.title}</div>
+					               					</span>
+					               				</li>	
+			               					)
+			               				}):""}
+			               				
+			               			</ul>
+			               		</div>
+		               		</HeaderUser>
+		                	<Button className='article'><Navicon className='iconWrite iconfont'/>写文章</Button>
+		                </Addition>
+		           </div>:
+	                <div>
+		                <Nav>
+		                	<NavItem className='left active'>
+		                		<Navicon className='iconindex iconfont'/>首页
+		                	</NavItem>
+		                	<NavItem className='left download'>
+		                		<Navicon className='icondow iconfont'/>下载App
+		                	</NavItem>
 		                	<Link to="/login">
 			                	<NavItem 
 			                		className='right login'
 			                		onClick={Sign_In}
 			                	>登录</NavItem>
 		                	</Link>
-	                	}
-	                	<NavItem className='right'>
-	                		<Navicon className='iconAa'/>
-	                	</NavItem>
-	                	<SearchWapper>
-	                		<CSSTransition
-	                		  in={focused}
-	                		  timeout={300}
-	                		  classNames="slide"
-	                		>
-			                	<NavSearch 
-			                	className={focused ? 'focused': ''}
-			                	onFocus={ () =>  FocusInput(list)}
-			                	onBlur={BlurInput}
-			                	/>
-			                </CSSTransition>
-			                	<Navicon 
-			                	className={focused ? 'focused iconsearch': 'iconsearch'} />
-		                		{this.SerachListPage()}
-		                </SearchWapper>
-	                </Nav>
-	                <Addition>
-	                	<Button className='article'><Navicon className='iconWrite'/>写文章</Button>
-	                	<Link to="/login">
-		                	<Button 
-		                		className='register'
-		                		onClick={Sign_Up}
-		                	>注册</Button>
-	                	</Link>
-	                </Addition>
+		                	<NavItem className='right'>
+		                		<Navicon className='iconAa iconfont'/>
+		                	</NavItem>
+		                	<SearchWapper>
+		                		<CSSTransition
+		                		  in={focused}
+		                		  timeout={300}
+		                		  classNames="slide"
+		                		>
+				                	<NavSearch 
+				                	className={focused ? 'focused': ''}
+				                	onFocus={ () =>  FocusInput(list)}
+				                	onBlur={BlurInput}
+				                	/>
+				                </CSSTransition>
+				                	<Navicon 
+				                	className={focused ? 'focused iconsearch iconfont': 'iconsearch iconfont'} />
+			                		{this.SerachListPage()}
+			                </SearchWapper>
+		                </Nav>
+		                <Addition>
+		                	<Button className='article'><Navicon className='iconWrite iconfont'/>写文章</Button>
+		                	<Link to="/login">
+			                	<Button 
+			                		className='register'
+			                		onClick={Sign_Up}
+			                	>注册</Button>
+		                	</Link>
+		                </Addition>
+		            </div>
+	                }
 	            </HeaderWrapper>
 	        </HeaderNav>
         )
@@ -133,6 +218,8 @@ const mapStateToProps = (state) =>{
 		mouseIn: state.getIn(['header','mouseIn']),
 		setin: state.getIn(['header','login']),
 		tabskey: state.getIn(['login', 'tabskey']),
+		otherlist: state.getIn(['header', 'otherList']),
+		avatarList: state.getIn(['header', 'avatarList']),
 	}
 }
 
@@ -148,9 +235,6 @@ const mapDispatchToProps = (dispatch) =>{
 	    Sign_Up(){
 	    	dispatch(actionLogin.getLoginup());
 	    },
-	    Sign_out(){
-	    	dispatch(services.getHeaderLogup());
-	    },
 	    BlurInput(){
 			dispatch(services.getBlurInputAction());
 	    },
@@ -162,8 +246,30 @@ const mapDispatchToProps = (dispatch) =>{
 	    LeaveInput(){
 	    	dispatch(services.getLeaveInputLIst());
 	    },
+	    newotherlist(){
+	    	dispatch(services.getHeaderOthersList());
+	    },
+	    otherClick(key){
+	    	if(key == 15){
+	    		dispatch(services.getHeaderLogup());
+	    	}
+	    },	
+
+	    OthersOver(open){
+	    	open.style.display = 'block';
+	    },
+	    OthersOut(open){
+	    	open.style.display = 'none';
+	    },
+	    LookOver(look){
+	    	look.style.display = 'block';
+	    },
+	    LookOut(look){
+	    	look.style.display = 'none';
+	    },
 	    PageInput(page, total, spin){
 	    	let originPage = spin.style.transform.replace(/[^0-9]/ig, '');
+	    	console.log(spin.style.transform)
 	    	if(originPage){
 	    		originPage = parseInt(originPage, 10);
 	    	}else{

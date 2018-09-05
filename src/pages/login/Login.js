@@ -17,11 +17,11 @@ class Login extends Component{
       e.preventDefault();
       validateFields((err, values) => {
           if(values.name && values.password){
-              message.success('登录成功')
+              message.success('登录成功',1)
               Sign_In();
 
           }else{
-              message.error('登录信息失败')
+              message.error('登录信息失败',1)
           }
       });
     }
@@ -30,9 +30,9 @@ class Login extends Component{
       e.preventDefault();
       validateFieldsAndScroll((err, values) => {
           if(values.youname && values.youpassword && values.youphone){
-              message.success('注册成功')
+              message.success('注册成功',1)
           }else{
-              message.error('注册信息失败')
+              message.error('注册信息失败',1)
           }
       });
     }
@@ -61,7 +61,7 @@ class Login extends Component{
                                 })(
                                   <Input 
                                   className="session"
-                                  prefix={<div className="user" />}
+                                  prefix={<div className="user iconfont" />}
                                   onFocus={(e) => e.target.autocomplete="off"}
                                   placeholder="手机号或邮箱" />
                                 )}
@@ -76,7 +76,7 @@ class Login extends Component{
                                   <Input 
                                   className="session"
                                   type="password"
-                                  prefix={<div className="lock" />}
+                                  prefix={<div className="lock iconfont" />}
                                   onFocus={(e) => e.target.autocomplete="off"}
                                   placeholder="密码" />
                                 )}
@@ -103,10 +103,10 @@ class Login extends Component{
                           <div className="more-sign">
                               <h6>社交帐号登录</h6>
                               <ul>
-                                  <li><div className="weibo"/></li>
-                                  <li><div className="wechat"/></li>
-                                  <li><div className="qq"/></li>
-                                  <li><div className="qita"/></li>
+                                  <li><div className="weibo iconfont"/></li>
+                                  <li><div className="wechat iconfont"/></li>
+                                  <li><div className="qq iconfont"/></li>
+                                  <li><div className="qita iconfont"/></li>
                               </ul>
                           </div>
                       </div>
@@ -123,7 +123,7 @@ class Login extends Component{
                                 })(
                                   <Input 
                                   className="session"
-                                  prefix={<div className="user" />}
+                                  prefix={<div className="user iconfont" />}
                                   onFocus={(e) => e.target.autocomplete="off"}
                                   placeholder="你的昵称" />
                                 )}
@@ -139,7 +139,7 @@ class Login extends Component{
                                   className="session"
                                   type="string" 
                                   maxLength={11}
-                                  prefix={<div className="phone" />}
+                                  prefix={<div className="phone iconfont" />}
                                   onFocus={(e) => e.target.autocomplete="off"}
                                   placeholder="手机号" />
                                 )}
@@ -154,7 +154,7 @@ class Login extends Component{
                                   <Input 
                                   className="session"
                                   type="password"
-                                  prefix={<div className="lock" />}
+                                  prefix={<div className="lock iconfont" />}
                                   onFocus={(e) => e.target.autocomplete="off"}
                                   placeholder="设置密码" />
                                 )}
@@ -180,8 +180,8 @@ class Login extends Component{
                               <h6>社交帐号直接注册</h6>
                               <ul>
                                   <li></li>
-                                  <li><div className="wechat"/></li>
-                                  <li><div className="qq"/></li>
+                                  <li><div className="wechat iconfont"/></li>
+                                  <li><div className="qq iconfont"/></li>
                                   <li></li>
                               </ul>
                           </div>
