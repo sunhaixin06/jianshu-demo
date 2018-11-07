@@ -1,10 +1,10 @@
 import React, { PureComponent }from 'react';
 import { connect } from 'react-redux';
-import Topic from './components/Topic';
-import List from './components/List';
-import Hot from './components/Hot';
-import Banners from './components/banners';
-import Recommend from './components/Recommend';
+import Topic from './parts/Topic';
+import List from './parts/List';
+import Hot from './parts/Hot';
+import Banners from './parts/banners';
+import Recommend from './parts/Recommend';
 import Header from '../../common/header/Header';
 import { services } from './store';
 import { HomeWrapper, HomeLeft, HomeRight, BackTop, Navicon} from './style';

@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { RecommendWarpper, RecommendItem, Navicon, RecommendAuthors} from '../style';
+import { RecommendWarpper, RecommendItem, Navicon, RecommendAuthors, LookWhole} from '../style';
 import { services } from '../store';
+import { Link } from 'react-router-dom';
 class recommend extends PureComponent{
 
 	AuthorsListPage(){
@@ -34,6 +35,11 @@ class recommend extends PureComponent{
 				<ul className="list">
 					{authorslist}
 				</ul>
+				<Link to="/users">
+					<LookWhole>
+						查看全部<Navicon className="iconlinkmore iconfont" />
+					</LookWhole>
+				</Link>
 			</RecommendAuthors>
    		 )
 	}

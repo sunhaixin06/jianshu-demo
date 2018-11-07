@@ -42,7 +42,7 @@ export const LoginMain = styled.div`
     	background-color: hsla(0,0%,71%,.1);
     }
     .js-sign-in-container{
-    	width: 300px;
+    	width: 295px;
     	border-radius: 4px 4px 0 0;
         margin: 40px auto 0;
     }

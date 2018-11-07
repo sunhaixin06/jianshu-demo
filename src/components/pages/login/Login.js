@@ -43,7 +43,7 @@ class Login extends Component{
               <LoginLogo>
                 <a href="/" className="logo">
                   <img 
-                  src="//cdn2.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png" 
+                  src="https://cdn2.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png" 
                   alt="" />
                 </a>
               </LoginLogo>

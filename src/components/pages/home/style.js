@@ -123,6 +123,12 @@ export const Navicon = styled.i`
         right: 5px;
         top: 3px;
     }
+    &.iconlinkmore{
+        display: inline-block;
+        transition: .5s ease;
+        font-size: 14px;
+        float: none;
+    }
     &.iconfollow{
          display: inline-block;
         font-size: 13px;
@@ -139,6 +145,7 @@ export const Navicon = styled.i`
         padding-left: 15px;
     }
     &.iconlink:before{content:"\\E616"}
+    &.iconlinkmore:before{content:"\\E616"}
     &.iconlinks:before{content:"\\E616"}
     &.iconlistlike:before{content:"\\E660"}
     &.iconlist_like:before{content:"\\E661"}
@@ -343,4 +350,18 @@ export const RecommendAuthors = styled.div`
         font-size: 13px; 
         color: #42c02e;
      }
+`
+
+export const LookWhole = styled.div`
+     position: absolute;
+     padding: 7px 7px 7px 12px;
+     right: 0;
+     text-align: center;
+     width: 280px;
+     font-size: 13px;
+     color: #787878;
+     background-color: #f7f7f7;
+     border: 1px solid #dcdcdc;
+     border-radius: 4px;
+     cursor: pointer;
 `
