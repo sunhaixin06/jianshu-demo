@@ -4,7 +4,7 @@
 
 ## jianshu-demo
 
-    jianshu-demo （首页 详情页 以及 登录 注册）
+    首页 详情页 以及 登录 注册 
 
 #### 项目介绍
 
