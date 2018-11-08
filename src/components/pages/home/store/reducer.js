@@ -13,28 +13,28 @@ const defaultState = fromJS({
 	Page: 1
 });
 
-const changeHomeList = (state, action) =>{
-	return state.merge({
+const changeHomeList = (state, action) => 
+	state.merge({
 		topicList: fromJS(action.topicList),
 		articleList: fromJS(action.articleList),
 		hotList: fromJS(action.hotList),
 		carouselList: fromJS(action.carouselList),
 	});
-};
 
-const addMoreList = (state, action) =>{
-	return state.merge({
+
+const addMoreList = (state, action) => 
+	state.merge({
 		'articleList': state.get('articleList').concat(action.list),
 		'Page': action.nextPage
 	});
-}
 
-const addArticeList = (state, action) =>{
-	return state.merge({
+
+const addArticeList = (state, action) => 
+	state.merge({
 		followlist: action.data,
 		articetotal: action.articetotal
 	});
-}
+
 
 export default (state = defaultState, action) =>{
 	switch(action.type) {

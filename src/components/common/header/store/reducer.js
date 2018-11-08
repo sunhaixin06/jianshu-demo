@@ -12,19 +12,17 @@ const defaultState = fromJS({
 	avatarList: [],
 });
 
-const changeList = (state, action) => {
-	return state.merge({
+const changeList = (state, action) =>
+	state.merge({
 		list: action.data,
 		total: action.total
 	});
-};
 
-const othersList = (state, action) => {
-	return state.merge({
+const othersList = (state, action) => 
+	state.merge({
 		otherList: action.data,
 		avatarList:action.avatar
 	})
-}
 
 export default (state = defaultState, action ) =>{
 	switch(action.type){

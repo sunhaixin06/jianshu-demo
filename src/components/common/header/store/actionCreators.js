@@ -16,12 +16,10 @@ const getOthersList = (data, avatar) => ({
 
 export const getFocusInputAction = () => ({
     type: constant.focus_type
-  
 });
 
 export const getBlurInputAction = () => ({
     type: constant.blur_type
-  
 });
 
 export const getHeaderLogin = (login) =>({
@@ -47,25 +45,22 @@ export const getPageInputList = (page) => ({
 	page
 })
 
-export const getFocusInputList = () =>{
-	return (dispatch) =>{
-		axios.get('/api/headerList.json').then((res) =>{ 
-	     	const data = res.data;
-	     	dispatch(getChangeList(data.data));
-	    }).catch(() => ( 
-	    	console.log('err')
-	    ))
-    }
+export const getFocusInputList = () => (dispatch) =>{
+	axios.get('/api/headerList.json').then((res) =>{ 
+		const data = res.data;
+		dispatch(getChangeList(data.data));
+	}).catch(() => ( 
+		console.log('err')
+	))
 };
 
-export const getHeaderOthersList = () =>{
-	return (dispatch) =>{
-		axios.get('/api/news.json').then((res) =>{
-			const data = res.data;
-			dispatch(getOthersList(data.data, data.avatar));
-		}).catch(() =>{
-			console.log('err')
-		})
-	}
-}
+export const getHeaderOthersList = () => (dispatch) =>{
+	axios.get('/api/news.json').then((res) =>{
+		const data = res.data;
+		dispatch(getOthersList(data.data, data.avatar));
+	}).catch(() =>{
+		console.log('err')
+	})
+};
+
 

@@ -1,1 +1,1 @@
-export const warp_type  =  'warp_type';
+export const warp_type  =  'warp_type'; // 定义 action 类型 

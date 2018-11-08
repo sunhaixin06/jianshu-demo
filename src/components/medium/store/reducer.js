@@ -5,11 +5,10 @@ const defaultState = fromJS({
 	mediumList: []
 });
 
-const changeMediumList = (state, action) =>{
-	return state.merge({
+const changeMediumList = (state, action) =>
+ 	state.merge({
 		mediumList: fromJS(action.mediumList),
 	});
-};
 
 export default (state = defaultState, action) =>{
 	switch(action.type) {

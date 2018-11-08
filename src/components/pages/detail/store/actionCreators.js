@@ -6,13 +6,12 @@ const changDetail = (result) =>({
 	detaillist: result.articleList,
 })
 
-export const getDetail = () =>{
-	return (dispatch) =>{
+export const getDetail = () => (dispatch) =>{
 		axios.get('/api/home.json').then((res) =>{
 			const result = res.data.data;
 			dispatch(changDetail(result));
 		}).catch(() => ( 
 	    	console.log('err')
 	    ))
-	}
 }
+
