@@ -4,13 +4,11 @@ import 'element-theme-default';
 import { Carousel } from 'element-react';
 
 class banners extends PureComponent{
-
 	render(){
-		const { List } = this.props;
-		
 		return(
 			<Carousel height="270px" autoplay={true}>
-				{List.map((item) => {
+				{this.props.List? 
+				 this.props.List.map((item) => {
 	              return (
 	                <Carousel.Item 
 	                  key={item.get('id')}>
@@ -20,13 +18,11 @@ class banners extends PureComponent{
 	                  	src={item.get('imgUrl')}/>
 	                </Carousel.Item>
 	              )
-	            })
-	          }
+	            }): "" }
 		    </Carousel>
 		)
 	}
 }
-
 const mapState = (state) =>({
 	List: state.getIn(['home', 'carouselList'])
 })

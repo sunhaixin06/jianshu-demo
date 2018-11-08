@@ -5,24 +5,20 @@ import { TopicWapper , TopicItem, TopicMovehot, Navicon } from '../style';
 class Topic extends PureComponent{
 
 	render(){
-		const { topicList } = this.props;
-		
 		return (
 			<TopicWapper>
-				{
-					topicList.map((item) =>{
-						return(
-							<TopicItem key={item.get('id')}>
-								<img
-									className='topic-pic'
-									src={item.get('imgUrl')}
-									alt=""
-								/>
-								{item.get('title')}
-							</TopicItem>
-						)
-					})
-				}
+				{this.props.topicList?
+				 this.props.topicList.toJS().map((Topic) =>{
+					return(
+						<TopicItem key={Topic.id}>
+							<img
+								className='topic-pic'
+								src={Topic.imgUrl}
+								alt=""
+							/>
+							{Topic.title}
+						</TopicItem>
+					)}): ""}
 				<TopicMovehot>更多热门专题</TopicMovehot>
 				<TopicMovehot>
 					<Navicon className='iconlink iconfont'/>

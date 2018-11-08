@@ -83,7 +83,11 @@ class Detail extends PureComponent{
 									<i className="iconfont ic-search-notebook"></i>
 									<span>Front end learn road</span>
 								</a>
-								<div className="copyright" data-toggle="tooltip" data-html="true" data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+								<div 
+								className="copyright" 
+								data-toggle="tooltip" 
+								data-html="true" 
+								data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
 									© 著作权归作者所有
 								</div>
 							</DetailFoot>
@@ -95,7 +99,9 @@ class Detail extends PureComponent{
 									<a className="title">{item.nickname}</a>
 									<p>写了 64463 字，被 84 人关注，获得了 {item.like} 个喜欢</p>
 								</div>
-								<div className="signature">一个喜欢把自己学习中遇到的问题把它以文章的形式表现出来。</div>
+								<div className="signature">
+								一个喜欢把自己学习中遇到的问题把它以文章的形式表现出来。
+								</div>
 							</DetailFootdetail>
 							<MetaBottom>
 								<div className="like">

@@ -7,7 +7,6 @@ import Login from './components/pages/login/Login';
 import Medium from './components/medium/Medium';
 import store from './store';
 
-
 class App extends Component {
   render() {
     return (
@@ -26,5 +25,3 @@ class App extends Component {
 }
 
 export default App;
-
-// import Header from './common/header/Header';

@@ -36,21 +36,16 @@ class list extends PureComponent{
 										<Navicon className="iconlist_like iconfont"/>
 										<i>{item.get('like')}</i>
 									</div>
-									{ item.get('money') ?
+									{item.get('money') ?
 										<div>
 											<Navicon className="iconlist_money iconfont"/>
 											<i>{item.get('money')}</i>
 										</div>
-										: ""
-									}
+										: ""}
 								</div>
 						    </ListInfo>
 						</ListItem>
-					</Link>
-
-					)
-				}) : ""
-			}
+					</Link>)}) : ""}
 			<LoadMore onClick={() => Loadmore(page)}>阅读更多</LoadMore>
 			</div>
 		)

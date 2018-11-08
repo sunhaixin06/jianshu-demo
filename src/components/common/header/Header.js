@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import { services } from './store';
 import { actionLogin } from '../../pages/login/store';
+import { Touxiang } from '../../../constants';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { 
@@ -133,7 +134,7 @@ class Header extends Component{
 		                	onMouseOver={() => LookOver(this.lookIcon)}
 		               		>
 		               			<div className="avatar">
-		               				<img src="//upload.jianshu.io/users/upload_avatars/8429722/8520bf4d-39f2-472a-951a-43d94747e7cf.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120"  alt=""/>
+		               				<img src={Touxiang} alt=""/>
 			               			<ul 
 			               			ref={(look) => { this.lookIcon = look }}
 			               			className="look"

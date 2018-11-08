@@ -3,6 +3,7 @@ import { Tabs, Form, Input, Button, Checkbox, message} from 'antd';
 import { connect } from 'react-redux';
 import { services } from '../../common/header/store';
 import { Redirect } from 'react-router-dom';
+import { LoginURL } from '../../../constants';
 import { LoginWrapper, LoginLogo, LoginMain } from './style';
 
 class Login extends Component{
@@ -42,9 +43,7 @@ class Login extends Component{
             <LoginWrapper>
               <LoginLogo>
                 <a href="/" className="logo">
-                  <img 
-                  src="https://cdn2.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png" 
-                  alt="" />
+                  <img src={LoginURL} alt="" />
                 </a>
               </LoginLogo>
               <LoginMain>
@@ -194,7 +193,6 @@ class Login extends Component{
       }else{
           return <Redirect to='/' />
       }
-
   }
 
 }

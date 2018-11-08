@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { RecommendWarpper, RecommendItem, Navicon, RecommendAuthors, LookWhole} from '../style';
 import { services } from '../store';
+import { RecomURl } from '../../../../constants'
 import { Link } from 'react-router-dom';
 class recommend extends PureComponent{
 
@@ -32,9 +33,7 @@ class recommend extends PureComponent{
 					<i ref={(icon) => { this.spinIcon = icon }}
 					className="iconChangeAAA spin iconfont" />换一批</a>
 				</div>
-				<ul className="list">
-					{authorslist}
-				</ul>
+				<ul className="list">{authorslist}</ul>
 				<Link to="/users">
 					<LookWhole>
 						查看全部<Navicon className="iconlinkmore iconfont" />
@@ -48,9 +47,7 @@ class recommend extends PureComponent{
 		return(
 			<div>
 				<RecommendWarpper>
-					<img alt=""
-					src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png"
-					className="desc"/>
+					<img alt="" src={RecomURl} className="desc"/>
 					<RecommendItem>
 						<div className="title">下载简书手机App
 							<Navicon className="iconlinks iconfont" />
@@ -70,8 +67,8 @@ class recommend extends PureComponent{
 
 const mapStateToProps = (state) =>{
 	return{
-		followlist: state.getIn(['home','followlist']),
-		articePage: state.getIn(['home','articePage']),
+		followlist:  state.getIn(['home','followlist']),
+		articePage:  state.getIn(['home','articePage']),
 		articetotal: state.getIn(['home','articetotal']),
 	}
 }
