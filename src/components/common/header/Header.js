@@ -66,12 +66,12 @@ class Header extends Component{
 		this.props.newotherlist();
 	}
     render(){
-    	const { focused, FocusInput, BlurInput, 
-    			OthersOver, OthersOut, list, otherlist, LookOut, LookOver,  
-    			otherClick, avatarList, setin, Sign_Up, Sign_In
-    	} = this.props;
-    	let dropdown = otherlist.toJS();
-    	let dropdowns = avatarList.toJS();
+    	const { 
+			focused, FocusInput, BlurInput, 
+			OthersOver, OthersOut, list, 
+			otherlist, LookOut, LookOver,  
+			otherClick, avatarList, 
+			setin, Sign_Up, Sign_In } = this.props;
         return(
         	<HeaderNav>
 	             <HeaderWrapper>   
@@ -87,7 +87,8 @@ class Header extends Component{
 		                	<NavItem className='left download'>
 		                		<Navicon className='iconmenu iconfont'/>关注
 		                	</NavItem>
-		                	<NavItem className='left download' 
+							<NavItem 
+							className='left download' 
 		                	onMouseOut={() => OthersOut(this.openIcon)} 
 		                	onMouseOver={() => OthersOver(this.openIcon)}
 		                	>
@@ -95,7 +96,7 @@ class Header extends Component{
 			                		<ul 
 			                		ref={(open) => { this.openIcon = open }}
 			                		className="dropdown-menu open">
-			                			{dropdown? dropdown.map((item) =>{
+			                			{otherlist.toJS()? otherlist.toJS().map((item) =>{
 			                				return(
 			                					<li key={item.id}>
 			                						<a>
@@ -139,7 +140,7 @@ class Header extends Component{
 			               			ref={(look) => { this.lookIcon = look }}
 			               			className="look"
 			               			>
-			               				{dropdowns? dropdowns.map((item) =>{
+			               				{avatarList.toJS()? avatarList.toJS().map((item) =>{
 			               					return(
 			               						<li key={item.id} onClick={() =>otherClick(item.id)}>
 					               					<span>
@@ -270,7 +271,6 @@ const mapDispatchToProps = (dispatch) =>{
 	    },
 	    PageInput(page, total, spin){
 	    	let originPage = spin.style.transform.replace(/[^0-9]/ig, '');
-	    	console.log(spin.style.transform)
 	    	if(originPage){
 	    		originPage = parseInt(originPage, 10);
 	    	}else{
