@@ -5,7 +5,7 @@
   "dependencies": {
     "antd": "^3.10.4",
     "antd-mobile": "^2.2.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "element-react": "^1.4.20",
     "element-theme-default": "^1.4.13",
     "immutable": "3.8.2",
